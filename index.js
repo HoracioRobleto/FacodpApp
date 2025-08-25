@@ -7,7 +7,7 @@
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             });
-            window.open('https://github.com/HoracioRobleto/FACODP/releases/download/v1.0.0/FacodpInstaller.exe', '_blank');
+            window.open('https://drive.google.com/file/d/1JtjXFNYcsg_hmWGkjhXrv2e-dh73Tn55/view?usp=sharing', '_blank');
         }
 
         function downloadManual() {
