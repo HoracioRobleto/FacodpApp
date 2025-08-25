@@ -252,7 +252,7 @@
             color: rgba(255, 255, 255, 0.7);
             margin-top: 50px;
         }
-
+   
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -283,9 +283,10 @@
                 width: fit-content;
             }
 
-            .screenshots-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+
+             .screenshots-grid {
+               grid-template-columns: 1fr !important;
+               gap: 20px;
             }
 
             .screenshot-placeholder {
@@ -368,6 +369,14 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid rgba(52, 152, 219, 0.3);
         }
+
+        /* .screenshot-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        } */
+
 
         .screenshot-item:hover {
             transform: translateY(-10px);
