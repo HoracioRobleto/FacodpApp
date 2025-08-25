@@ -1,3 +1,26 @@
+const BIN_ID = '68accbb543b1c97be92a033d'; // Reemplaza con tu Bin ID
+const API_KEY = '$2a$10$sLTeRpWtTEbk81qe4EUMMu7yuRWigbJWskp5DizMVHQxiB0oipHqC'; // Reemplaza con tu API Key
+
+function actualizarContadorEnPagina(valor) {
+    document.getElementById('counterValue').textContent = valor;
+}
+
+// Leer el contador global al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+        headers: {
+            'X-Access-Key': API_KEY
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        actualizarContadorEnPagina(data.record.descargas);
+    })
+    .catch(() => {
+        actualizarContadorEnPagina('Error');
+    });
+});
+
  function downloadApp() {
             // Aquí debes colocar la URL real de tu archivo .exe
             // Por ejemplo: window.location.href = 'https://github.com/tu-usuario/tu-repo/releases/download/v1.0/FACODP.exe';
@@ -8,6 +31,29 @@
                 confirmButtonText: 'Aceptar'
             });
             window.open('https://github.com/HoracioRobleto/FacodpApp/releases/download/v1.0.0/FacodpInstaller.exe', '_blank');
+
+            // Leer el contador actual
+                fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                    headers: {
+                        'X-Access-Key': API_KEY
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    let nuevoValor = data.record.descargas + 1;
+                    // Actualizar el contador en el bin
+                    fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Access-Key': API_KEY
+                        },
+                        body: JSON.stringify({ descargas: nuevoValor })
+                    })
+                    .then(() => {
+                        actualizarContadorEnPagina(nuevoValor);
+                    });
+                });
         }
 
         function downloadManual() {
