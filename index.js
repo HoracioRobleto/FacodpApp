@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             });
-            window.open('https://github.com/HoracioRobleto/FacodpApp/releases/download/v1.0.0/FacodpInstaller.exe', '_blank');
+            window.open('https://github.com/HoracioRobleto/FACODP/releases/download/v1.0.1/FacodpInstaller_1.0.1.exe', '_blank');
 
             // Leer el contador actual
                 fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
